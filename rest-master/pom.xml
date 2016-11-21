@@ -1,0 +1,398 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.sharegroup.ibaby.rest</groupId>
+    <artifactId>sharegroup_REST</artifactId>
+    <packaging>war</packaging>
+    <version>2.8.0-SNAPSHOT</version>
+    <name>REST-master</name>
+    <url>http://maven.apache.org</url>
+
+    <parent>
+        <artifactId>sharegroup</artifactId>
+        <groupId>com.sharegroup.ibaby.rest</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.version>1.0-SNAPSHOT</project.version>
+        <smackx.version>3.2.1</smackx.version>
+        <tinder.version>1.2.2</tinder.version>
+        <smack.version>4.1.5</smack.version>
+        <smack-extensions.version>4.1.5</smack-extensions.version>
+        <org.springframework.version>4.1.4.RELEASE</org.springframework.version>
+        <jackson.version>1.9.5</jackson.version>
+    </properties>
+
+    <scm>
+        <connection>scm:svn:https://192.168.1.123/svn/java/sharegroup_REST</connection>
+        <developerConnection>scm:svn:https://192.168.1.123/svn/java/sharegroup_REST</developerConnection>
+        <url>https://192.168.1.123/svn/java/sharegroup_REST</url>
+    </scm>
+
+        <build>
+
+            <!-- Instructing the resources plugin to filter certain directories -->
+            <resources>
+                <resource>
+                    <directory>src/main/resources</directory>
+                    <filtering>true</filtering>
+                </resource>
+            </resources>
+
+            <!--<finalName>REST</finalName>-->
+
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-plugin</artifactId>
+                    <version>1.9.4</version>
+                    <configuration>
+                        <username>lizongping</username>
+                        <password>lzp123</password>
+                        <startDate>YYYY-MM-DD</startDate>
+                        <endDate>YYYY-MM-DD</endDate>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+
+    <repositories>
+
+        <repository>
+            <id>sharegroup.ibaby</id>
+            <name>sharegroup.ibaby.osc</name>
+            <url>http://192.168.1.206:8081/nexus/content/groups/public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <!--<repository>
+            <id>nexus-osc</id>
+            <name>Nexus osc</name>
+            <url>http://maven.oschina.net/content/groups/public/</url>
+        </repository>
+
+        <repository>
+            <id>mvnrepository</id>
+            <name>mvnrepository</name>
+            <url>http://www.mvnrepository.com</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>smack.snapshot</id>
+            <name>smack.snaphost</name>
+            <url>https://oss.sonatype.org</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>-->
+    </repositories>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+
+        <!-- smack jars -->
+        <dependency>
+            <groupId>org.igniterealtime.smack</groupId>
+            <artifactId>smack-core</artifactId>
+            <version>${smack.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.igniterealtime.smack</groupId>
+            <artifactId>smack-extensions</artifactId>
+            <version>${smack-extensions.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.igniterealtime.smack</groupId>
+            <artifactId>smack-experimental</artifactId>
+            <version>${smack-extensions.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.igniterealtime.smack</groupId>
+            <artifactId>smack-tcp</artifactId>
+            <version>${smack.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.igniterealtime.smack</groupId>
+            <artifactId>smack-java7</artifactId>
+            <version>${smack.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.igniterealtime.smack</groupId>
+            <artifactId>smack-debug</artifactId>
+            <version>${smack.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.igniterealtime.smack</groupId>
+            <artifactId>smack-debug-slf4j</artifactId>
+            <version>${smack.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.16</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.igniterealtime.smack</groupId>
+            <artifactId>smack-im</artifactId>
+            <version>${smack.version}</version>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.igniterealtime.smack</groupId>
+            <artifactId>smackx</artifactId>
+            <version>${smackx.version}</version>
+        </dependency>-->
+        <!--<dependency>
+            <groupId>org.igniterealtime.smack</groupId>
+            <artifactId>smackx-debug</artifactId>
+            <version>${smackx.version}</version>
+        </dependency>-->
+
+        <!--<dependency>
+            <groupId>org.igniterealtime</groupId>
+            <artifactId>tinder</artifactId>
+            <version>${tinder.version}</version>
+        </dependency>-->
+        <!-- smack end -->
+
+        <!-- glassfish jars -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>2.22.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-jaxb</artifactId>
+            <version>2.22.1</version>
+        </dependency>
+
+        <!-- glassfish end-->
+
+        <!--springmvc -->
+        <!-- spring 依赖包 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${org.springframework.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${org.springframework.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.5</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <!-- API生成工具 -->
+        <dependency>
+            <groupId>com.mangofactory</groupId>
+            <artifactId>swagger-springmvc</artifactId>
+            <version>0.9.5</version>
+        </dependency>
+
+       <!-- <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-parser</artifactId>
+            <version>1.0.14</version>
+        </dependency>-->
+
+        <!--springmvc end  -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.1.28</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-beanutils</groupId>
+                    <artifactId>commons-beanutils</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-xc</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <!-- 日志依赖包 -->
+        <dependency>
+            <groupId>com.jovezhao.cubilose</groupId>
+            <artifactId>cubilose-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- JSON依赖包 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.5.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>REST-202</id>
+            <properties>
+                <openfire.adminHost>127.0.0.1</openfire.adminHost>
+                <openfire.adminPort>9090</openfire.adminPort>
+                <openfire.serverHost>192.168.1.202</openfire.serverHost>
+                <openfire.serverName>192.168.1.202</openfire.serverName>
+                <openfire.serverPort>5222</openfire.serverPort>
+            </properties>
+        </profile>
+        <profile>
+            <id>REST-219</id>
+            <properties>
+                <openfire.adminHost>114.215.158.219</openfire.adminHost>
+                <openfire.adminPort>9090</openfire.adminPort>
+                <openfire.serverHost>114.215.158.219</openfire.serverHost>
+                <openfire.serverName>114.215.158.219</openfire.serverName>
+                <openfire.serverPort>5222</openfire.serverPort>
+            </properties>
+        </profile>
+       <!-- <profile>
+            <id>REST-PRODUCTION</id>
+            <properties>
+                <openfire.adminHost>127.0.0.1</openfire.adminHost>
+                <openfire.adminPort>9090</openfire.adminPort>
+                <openfire.serverHost>139.129.192.160</openfire.serverHost>
+                <openfire.serverName>139.129.192.160</openfire.serverName>
+                <openfire.serverPort>5222</openfire.serverPort>
+            </properties>
+        </profile>-->
+    </profiles>
+
+</project>

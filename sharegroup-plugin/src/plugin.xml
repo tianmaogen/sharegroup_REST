@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin>
+    <class>org.jivesoftware.openfire.plugin.ibaby.IbabyPlugin</class>
+    <name>sharegroup</name>
+    <description>Allows administration over a Ibaby API.</description>
+    <author>Jade </author>
+    <version>1.0.0</version>
+    <date>29/12/2015</date>
+    <minServerVersion>1.0.0</minServerVersion>
+    
+   <!-- <adminconsole>
+        <tab id="tab-server">
+            <sidebar id="sidebar-server-settings">
+                <item id="ibaby-api" name="ibaby API" url="ibaby-api.jsp"
+                     description="Click to manage the service that allows to configure the Openfire over a RESTFul API" />
+            </sidebar>
+        </tab>
+    </adminconsole>-->
+
+</plugin>
